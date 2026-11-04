@@ -3,247 +3,177 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MOONATE KO KASI 🌙 - Musina Ext 14</title>
-<link rel="manifest" href="manifest.json">
-<meta name="theme-color" content="#E86A17">
-<meta property="og:title" content="MOONATE KO KASI 🌙 | Giant Rolls & Burgers 🔥">
-<meta property="og:description" content="🔥 Giant Chicken Roll R140, Giant Steak Roll, Burgers from R55! Order now - Delivery R10-R20 in Musina Ext 14 (3KM) 🏍️ 0680361133">
-<meta property="og:image" content="https://musinapos.github.io/moonate-ko-kasi/images/giant-chicken.jpg">
-<link rel="icon" href="icon.png">
-<link rel="apple-touch-icon" href="icon.png">
+<title>MOONATE POS 🌙 - CASHIER ONLY</title>
+<meta name="theme-color" content="#111">
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700;800&display=swap');
 *{font-family:'Poppins',Arial;margin:0;padding:0;box-sizing:border-box}
-body{background:#FFF7ED;color:#1f1f1f;padding-bottom:100px}
-header{background:linear-gradient(135deg,#111 0%,#2a1a0a 100%);color:white;position:sticky;top:0;z-index:20;box-shadow:0 4px 20px rgba(0,0,0,0.3)}
-.top-slogan{text-align:center;font-size:11px;font-style:italic;font-family:Georgia,serif;letter-spacing:2px;color:#FFB26A;padding:8px 10px 2px}
-.online-badge{background:#F07F36;color:#111;text-align:center;padding:6px;font-size:11px;font-weight:800;letter-spacing:2px}
-.hero{display:flex;align-items:center;padding:15px;gap:12px;background:linear-gradient(135deg,#D9641A 0%,#E87E3A 50%,#B94E00 100%)}
-.hero-bike{font-size:52px;animation:bikeMove 0.8s infinite alternate;display:inline-block}
-@keyframes bikeMove{0%{transform:translateX(0)}100%{transform:translateX(8px)}}
-.hero-text h1{font-size:22px;line-height:1}
-.hero-text p{background:#111;color:#FFB26A;padding:4px 10px;border-radius:20px;display:inline-block;font-size:11px;margin-top:6px;font-weight:700}
-.delivery-bar{background:#111;color:white;text-align:center;padding:8px;font-size:11px}
-.delivery-bar span{color:#F07F36;font-weight:700}
-#menu-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;padding:14px}
-.item-card{background:white;border-radius:16px;overflow:hidden;box-shadow:0 4px 12px rgba(0,0,0,0.07);border:1px solid #FFE8D0;display:flex;flex-direction:column;position:relative}
-.item-card img{width:100%;height:145px;object-fit:cover;background:#FFF0DD}
-.card-body{padding:10px;text-align:center;flex:1;display:flex;flex-direction:column}
-.card-body h3{font-size:13px;min-height:32px;line-height:1.2}
-.card-body .desc{font-size:10px;color:#8a6a4f;margin:4px 0;min-height:24px}
-.card-body .price{font-weight:800;color:#CC5500;font-size:16px;margin:6px 0}
-.card-body button{margin-top:auto;background:linear-gradient(135deg,#E86A17,#CC5500);color:white;border:none;padding:10px;border-radius:10px;font-weight:700;font-size:12px;cursor:pointer}
-.card-body button:disabled{background:#ccc;cursor:not-allowed}
-.stock-badge{position:absolute;top:6px;right:6px;background:#111;color:white;font-size:9px;padding:3px 7px;border-radius:10px;font-weight:800;z-index:2}
-.stock-badge.low{background:#ff0000}
-.tag{position:absolute;top:6px;left:6px;color:white;font-size:9px;padding:3px 7px;border-radius:20px;font-weight:700;z-index:2}
-.tag-coming{background:#666}
-.tag-kids{background:#FF8C42;color:#111}
-.chat-box{background:white;margin:14px;border-radius:16px;padding:14px;box-shadow:0 4px 12px rgba(0,0,0,0.07);border:1px solid #FFE8D0}
-.chat-box h2{font-size:15px;text-align:center}
-.chat-box input,.chat-box textarea{width:100%;padding:10px;margin:6px 0;border:1px solid #FFD9B0;border-radius:10px;font-size:13px;font-family:inherit}
-.chat-box button{width:100%;padding:12px;border:none;border-radius:10px;background:#E86A17;color:white;font-weight:800;cursor:pointer}
-.comment{border-top:1px dashed #FFD9B0;padding:8px 0;font-size:12px}
-.comment b{color:#CC5500}
-.like-btn{background:#FFF0DD!important;color:#111!important;width:auto!important;padding:6px 12px!important;font-size:12px!important;margin-top:6px}
-.cart-bar{position:fixed;bottom:0;left:0;right:0;background:#111;color:white;padding:12px 16px;display:flex;justify-content:space-between;align-items:center;z-index:30;border-top:3px solid #FF8C42}
-.cart-bar button{background:#FF8C42;color:#111;border:none;padding:10px 22px;border-radius:10px;font-weight:800;cursor:pointer}
-#cart-modal,#pos-modal{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.85);z-index:40;padding:16px;overflow:auto}
-.receipt{background:#FFFEF7;width:100%;max-width:380px;margin:20px auto;border-radius:12px;padding:20px}
-.receipt .row{display:flex;justify-content:space-between;font-size:13px;margin:8px 0;align-items:center}
-.receipt input{width:100%;padding:12px;margin:6px 0;border:1px dashed #CC5500;border-radius:8px;background:#FFF8ED;font-size:13px}
-.pos-box{background:white;width:100%;max-width:480px;margin:10px auto;border-radius:16px;padding:18px}
-.pos-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:15px}
-.pos-tab{display:flex;gap:8px;margin-bottom:15px;overflow:auto}
-.pos-tab button{padding:10px 14px;border-radius:20px;border:1px solid #E86A17;background:white;font-weight:700;font-size:12px;white-space:nowrap;cursor:pointer}
-.pos-tab button.active{background:#E86A17;color:white}
-.pos-card{background:#FFF7ED;border:1px solid #FFE8D0;padding:12px;border-radius:12px;margin-bottom:10px}
-.pos-card b{font-size:18px!important;line-height:1.4}
-.pos-card small{font-size:13px!important;color:#333}
-.pos-name{font-size:20px;font-weight:800;color:#111;display:block;margin-bottom:6px;line-height:1.3}
-.pos-input{width:100%;padding:10px;border:1px solid #ddd;border-radius:8px;margin:5px 0}
-.pos-stats{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:15px}
-.stat{background:linear-gradient(135deg,#111,#333);color:white;padding:14px;border-radius:12px;text-align:center}
+body{background:#111;color:white;padding-bottom:190px}
+header{background:#E86A17;padding:14px;text-align:center;position:sticky;top:0;z-index:20}
+header h1{font-size:20px}
+header p{font-size:12px;font-weight:700}
+.stats{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;padding:10px}
+.stat{background:#222;border:1px solid #444;border-radius:12px;padding:10px;text-align:center}
 .stat b{font-size:20px;color:#FF8C42;display:block}
-.footer{background:#111;color:#aaa;text-align:center;padding:20px;font-size:11px;line-height:1.8}
-.footer b{color:white}
-.footer a{color:#FF8C42;text-decoration:none;font-weight:700}
-@keyframes pulseRound{0%{transform:scale(1)}50%{transform:scale(1.08)}100%{transform:scale(1)}}
-#splash{position:fixed;top:0;left:0;right:0;bottom:0;background:#FFF7ED;z-index:9999999;display:flex;flex-direction:column;align-items:center;justify-content:center;transition:opacity 0.6s}
-#splash.hide{opacity:0;pointer-events:none}
-#splash img{width:260px;height:260px;border-radius:50%;object-fit:cover;box-shadow:0 10px 30px rgba(0,0,0,0.25)}
-#splash p{margin-top:16px;font-weight:800;color:#CC5500;font-size:13px;letter-spacing:2px}
+.stat span{font-size:11px}
+.tabs{display:flex;gap:8px;padding:0 10px 10px}
+.tabs button{flex:1;padding:12px;border-radius:10px;border:none;font-weight:800;font-size:14px;background:#333;color:white}
+.tabs button.active{background:#E86A17;color:white}
+#pos-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;padding:10px}
+.pos-btn{background:white;color:#111;border:none;border-radius:14px;padding:16px 10px;text-align:left;cursor:pointer;min-height:95px}
+.pos-btn b{font-size:18px;line-height:1.2;display:block}
+.pos-btn span{font-size:14px;color:#CC5500;font-weight:800;display:block;margin-top:6px}
+.pos-btn small{font-size:12px;color:#666;display:block}
+.pos-btn.out{background:#555;color:#999}
+#sales-list{padding:10px;display:none}
+.sale-card{background:#222;border:1px solid #444;border-radius:12px;padding:12px;margin-bottom:10px}
+.sale-card b{font-size:18px;display:block}
+.sale-card div{font-size:15px;line-height:1.7;margin-top:6px}
+#stock-list{padding:10px;display:none}
+.stock-row{background:white;color:#111;border-radius:12px;padding:12px;margin-bottom:10px}
+.stock-row b{font-size:20px;display:block}
+.stock-row span{font-size:15px;font-weight:800;color:#CC5500}
+.stock-row div{display:flex;gap:6px;margin-top:8px}
+.stock-row button{flex:1;padding:12px;border:none;border-radius:8px;font-weight:800;font-size:16px;color:white}
+.till{position:fixed;bottom:0;left:0;right:0;background:white;color:#111;padding:12px;z-index:30;border-top:4px solid #E86A17;max-height:185px;overflow:auto}
+.till h3{font-size:15px}
+#till-items{font-size:14px;line-height:1.6;max-height:60px;overflow:auto}
+#till-items button{padding:2px 8px;margin-left:6px}
+.total-row{display:flex;justify-content:space-between;font-size:22px;font-weight:800;margin:6px 0}
+.till-btns{display:flex;gap:8px}
+.till-btns button{flex:1;padding:14px;border:none;border-radius:10px;font-weight:800;font-size:15px;color:white}
+#login{position:fixed;top:0;left:0;right:0;bottom:0;background:#111;z-index:99;display:flex;align-items:center;justify-content:center;padding:20px}
+.login-box{background:white;color:#111;border-radius:16px;padding:20px;width:100%;max-width:340px;text-align:center}
+.login-box input{width:100%;padding:14px;margin:10px 0;border:1px solid #ccc;border-radius:10px;font-size:18px;text-align:center}
+.login-box button{width:100%;padding:14px;background:#E86A17;color:white;border:none;border-radius:10px;font-weight:800;font-size:16px}
 </style>
 </head>
 <body>
-<div id="splash"><img src="icon.png?v=118" alt="MOONATE KO KASI"><p>MOONATE KO KASI 🌙</p></div>
-<div id="wa-fix" style="display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:#111;z-index:999999;padding:20px;text-align:center;color:white">
-<div style="background:white;color:#111;border-radius:16px;padding:20px;max-width:360px;margin:40px auto"><div style="font-size:50px">🌙</div><h2 style="font-size:18px">MOONATE KO KASI</h2><p style="font-size:13px;margin:10px 0;line-height:1.6">You opened from WhatsApp.<br>WhatsApp blocks INSTALL.<br><b>Tap below to open in Chrome & Install:</b></p><button onclick="openInChrome()" style="width:100%;padding:16px;background:#25D366;color:white;border:none;border-radius:12px;font-weight:800;font-size:15px">📲 OPEN IN CHROME & INSTALL</button><p style="font-size:11px;color:#666;margin-top:12px">OR: Tap ⋮ top right > Open in Chrome</p><button onclick="document.getElementById('wa-fix').style.display='none'" style="margin-top:10px;background:none;border:none;color:#E86A17;font-weight:700">Continue anyway ></button></div>
-</div>
-<header>
-<div class="top-slogan">✨ The Greatest Taste Ever Imagined ✨</div>
-<div class="online-badge">🏍️ ONLINE RESTAURANT APP • POS LINKED ✅ 🏍️</div>
-<div class="hero"><div class="hero-bike">🏍️</div><div class="hero-text"><h1>MOONATE KO KASI 🌙</h1><p>WE DELIVER 3KM 🛵 FAST & HOT</p></div></div>
-<div class="delivery-bar">📍 House 5224, Ext 14 | <span>Delivery R10 - R20 (3KM)</span> | 09:00-22:00 | <span onclick="openPOS()" style="cursor:pointer;text-decoration:underline">🔐 POS LOGIN</span></div>
-</header>
-<div id="menu-grid"></div>
-<div class="chat-box">
-<h2>💬 CUSTOMER CHAT • COMMENTS & SUGGESTIONS 💬</h2>
-<p style="text-align:center;font-size:11px;color:#888">Tell us what you loved! Like MOONATE ❤️</p>
-<button onclick="likeApp()" style="background:#111;margin:8px 0">❤️ LIKE MOONATE (<span id="likeCount">0</span>)</button>
-<input id="chat-name" placeholder="Your Name">
-<textarea id="chat-msg" placeholder="Your comment / suggestion... e.g. Add chips!"></textarea>
-<button onclick="postComment()">POST COMMENT 💬</button>
-<button onclick="sendSuggestion()" style="background:#25D366;margin-top:6px">📲 SEND SUGGESTION TO BOSS ON WHATSAPP</button>
-<div id="comment-list" style="margin-top:10px"></div>
-</div>
-<div class="footer">
-<b>MOONATE KO KASI 🌙🔥</b><br>
-📍 Musina Ext 14, House 5224<br>
-📞 <a href="tel:0680361133">068 036 1133</a> | 💬 <a href="https://wa.me/27799073779">079 907 3779</a><br>
-<div style="margin-top:10px"><a href="#" onclick="openPOS();return false;" style="border:1px solid #FF8C42;padding:6px 12px;border-radius:20px">🔐 STAFF POS LOGIN</a></div>
-<div style="margin-top:10px;color:#555;font-size:10px">Designed by Musina POS Powers Systems ✨</div>
-</div>
-<div class="cart-bar"><div>🧾 <span id="cart-count">0</span> Items | R<span id="cart-total">0</span></div><button onclick="openCart()">RECEIPT 🧾</button></div>
-<div id="roundInstallBtn" onclick="installApp()" style="display:flex;position:fixed;bottom:90px;right:14px;z-index:99999;background:linear-gradient(135deg,#E86A17,#CC5500);width:74px;height:74px;border-radius:50%;box-shadow:0 6px 22px rgba(232,106,23,0.6);flex-direction:column;align-items:center;justify-content:center;cursor:pointer;animation:pulseRound 1.5s infinite;text-align:center;border:3px solid white"><span style="font-size:26px;line-height:1">📲</span><span style="font-size:9px;font-weight:900;color:white;line-height:1;margin-top:3px">INSTALL</span></div>
-<div id="cart-modal" onclick="if(event.target==this)closeCart()">
-<div class="receipt">
-<h2 style="text-align:center">MOONATE KO KASI 🌙</h2>
-<div style="text-align:center;font-size:11px;color:#666">Musina Ext 14 House 5224<br>Tel: 0680361133<br>Order #: <span id="order-no"></span></div>
-<div style="border-top:1px dashed #999;margin:12px 0"></div>
-<div id="cart-items"></div>
-<div style="border-top:1px dashed #999;margin:12px 0"></div>
-<div class="row"><span>Subtotal:</span><b>R<span id="sub-total">0</span></b></div>
-<div class="row"><span>Delivery:</span><b>R<span id="del-fee">0</span></b></div>
-<div style="border-top:1px dashed #999;margin:12px 0"></div>
-<div class="row" style="font-size:16px"><span>TOTAL:</span><b>R<span id="modal-total">0</span></b></div>
-<input id="cust-name" placeholder="Your Full Name *">
-<input id="cust-address" placeholder="Your Address + House No *">
-<input id="cust-note" placeholder="Extra note (optional)">
-<div style="display:grid;gap:8px;margin-top:14px">
-<button style="padding:14px;border-radius:10px;border:none;font-weight:800;background:#25D366;color:white" onclick="pay('whatsapp')">💬 ORDER ON WHATSAPP</button>
-<button style="padding:14px;border-radius:10px;border:none;font-weight:800;background:#111;color:white" onclick="pay('cash')">💵 CASH ON DELIVERY</button>
-<button style="padding:14px;border-radius:10px;border:none;font-weight:800;background:linear-gradient(135deg,#E86A17,#CC5500);color:white" onclick="pay('card')">💳 PAY WITH CARD</button>
-</div>
-<div style="text-align:center;margin-top:12px;display:flex;justify-content:space-between"><span onclick="clearCart()" style="cursor:pointer;color:#999;font-weight:700">🗑️ Clear</span><span onclick="closeCart()" style="cursor:pointer;color:#CC5500;font-weight:700">❌ CLOSE</span></div>
+
+<div id="login">
+<div class="login-box">
+<div style="font-size:50px">🌙</div>
+<h2>MOONATE POS</h2>
+<p>CASHIER ONLY</p>
+<input type="password" id="pin" placeholder="PIN - 5224">
+<button onclick="checkPIN()">🔓 OPEN POS</button>
+<p style="font-size:12px;color:#888;margin-top:10px">PIN: 5224<br><a href="index.html" style="color:#E86A17">← Back to Customer Menu</a></p>
 </div>
 </div>
-<div id="pos-modal" onclick="if(event.target==this)closePOS()">
-<div class="pos-box">
-<div class="pos-header"><h3>🔐 MOONATE POS</h3><span onclick="closePOS()" style="cursor:pointer;font-weight:800;color:#CC5500">❌ CLOSE</span></div>
-<div id="pos-login"><p style="font-size:13px;margin-bottom:10px">Enter POS PIN to access Staff Dashboard</p><input type="password" id="pos-pin" class="pos-input" placeholder="Enter PIN (default 5224)"><button onclick="checkPIN()" style="width:100%;padding:12px;background:#111;color:white;border:none;border-radius:10px;font-weight:800;margin-top:10px">🔓 LOGIN TO POS</button><p style="font-size:10px;color:#888;margin-top:8px">Default PIN: 5224</p></div>
-<div id="pos-dashboard" style="display:none">
-<div class="pos-stats"><div class="stat"><b id="stat-sales">R0</b><span>Today Sales</span></div><div class="stat"><b id="stat-orders">0</b><span>Orders Today</span></div><div class="stat"><b id="stat-stock">0</b><span>Items in Stock</span></div><div class="stat"><b id="stat-low">0</b><span>Low Stock</span></div></div>
-<div class="pos-tab"><button id="tab-stock" class="active" onclick="showPOSTab('stock')">📦 STOCK</button><button id="tab-sales" onclick="showPOSTab('sales')">💰 SALES</button><button id="tab-add" onclick="showPOSTab('add')">➕ ADD ITEM</button></div>
-<div id="pos-stock-list"></div><div id="pos-sales-list" style="display:none"></div>
-<div id="pos-add-form" style="display:none"><div class="pos-card"><h4>Add Product - Name Only, Picture Optional</h4><input id="new-name" class="pos-input" placeholder="Product Name *"><input id="new-price" class="pos-input" type="number" placeholder="Price R *"><input id="new-stock" class="pos-input" type="number" placeholder="Stock Qty"><input id="new-desc" class="pos-input" placeholder="Description"><input id="new-img" class="pos-input" placeholder="Image path - LEAVE EMPTY if no picture"><label style="font-size:12px"><input type="checkbox" id="new-coming"> Coming Soon?</label><button onclick="addNewProduct()" style="width:100%;padding:12px;background:#E86A17;color:white;border:none;border-radius:10px;font-weight:800;margin-top:8px">💾 SAVE PRODUCT</button><p style="font-size:11px;color:#888;margin-top:6px">No picture = OK for selling. It will use default picture.</p></div></div>
-<button onclick="clearAllSales()" style="width:100%;padding:10px;background:#ff0000;color:white;border:none;border-radius:10px;font-weight:700;margin-top:15px">🗑️ Clear Today's Sales (End of Day)</button>
+
+<header><h1>🌙 MOONATE POS - CASHIER</h1><p>NO PICTURES - NAMES ONLY - TAP NAME TO SELL</p></header>
+
+<div class="stats">
+<div class="stat"><b id="stat-sales">R0</b><span>TODAY SALES</span></div>
+<div class="stat"><b id="stat-orders">0</b><span>ORDERS</span></div>
+<div class="stat"><b id="stat-stock">0</b><span>IN STOCK</span></div>
+</div>
+
+<div class="tabs">
+<button id="tab-sell" class="active" onclick="showTab('sell')">🧾 SELL</button>
+<button id="tab-sales" onclick="showTab('sales')">💰 SALES</button>
+<button id="tab-stock" onclick="showTab('stock')">📦 STOCK</button>
+</div>
+
+<div id="pos-grid"></div>
+
+<div id="sales-list"></div>
+<div id="stock-list"></div>
+
+<div class="till">
+<h3>🧾 CURRENT SALE</h3>
+<div id="till-items">No items - Tap a name above Boss</div>
+<div class="total-row"><span>TOTAL:</span><span>R<span id="till-total">0</span></span></div>
+<div class="till-btns">
+<button style="background:#25D366" onclick="checkout('CASH')">💵 CASH</button>
+<button style="background:#111" onclick="checkout('CARD')">💳 CARD</button>
+<button style="background:#ff0000" onclick="clearTill()">🗑️ CLEAR</button>
 </div>
 </div>
-</div>
+
 <script>
-var ua=navigator.userAgent||""; var isWA=/WhatsApp|FBAN|FBAV|Instagram/i.test(ua);
-if(isWA){document.getElementById('wa-fix').style.display='block';}
-function openInChrome(){var site="https://musinapos.github.io/moonate-ko-kasi/";var clean="musinapos.github.io/moonate-ko-kasi/";window.location.href="intent://"+clean+"#Intent;scheme=https;package=com.android.chrome;S.browser_fallback_url="+encodeURIComponent(site)+";end";setTimeout(function(){alert("iPhone? Tap Share > Open in Safari > Add to Home Screen");},1500);}
 const defaultMenu=[
-{id:3,name:"Dackwood",price:80,desc:"Long cut fries + Toasted + Sauce",img:"images/menu3.jpg",stock:25},
-{id:4,name:"2 Hot Dogs 😊 👧🧒",price:70,desc:"KID'S FRIEND ⭐ Made just for kids! 2 Hotdogs + Fries + Sauce • Kid-size, not spicy",img:"images/menu4.jpg",stock:30,kids:true},
-{id:5,name:"Giant Steak Roll",price:140,desc:"Giant Steak Roll with chips aside + Sauce 🍟",img:"images/giant--steak.jpg",stock:12},
-{id:6,name:"Giant Chicken Roll",price:140,desc:"Giant Chicken Roll with chips aside + Sauce 🍟",img:"images/giant--chicken.jpg",stock:12},
-{id:7,name:"Classic Burger + Chips",price:55,desc:"Beef + Lettuce + Tomato + Cucumber + Sauce + Chips Aside 🍟",img:"images/classic-burger.jpg",stock:40},
-{id:8,name:"Cheese Burger + Chips",price:65,desc:"Beef + Cheese + Sauce + Lettuce + Tomato + Cucumber + Chips Aside 🍟",img:"images/cheese-burger.jpg",stock:35},
-{id:14,name:"MEGA BURGER + Chips",price:90,desc:"2 Patties + Cheese + Sauce of Choice + Lettuce + Tomato + Cucumber + Chips Aside 🍟",img:"mega.jpg",stock:15},
-{id:15,name:"DOUBLE CHEESE JUMBO + Chips",price:100,desc:"2 Patties + DOUBLE Cheese + Bunch of Chips Aside + Sauce + Lettuce + Tomato + Cucumber 🔥",img:"jumbo.jpg",stock:15},
-{id:9,name:"4 Cheese Burger + Fries",price:160,desc:"Family Box - 4 Burgers + Fries + Sauce",img:"images/friends-box.jpg",stock:8},
-{id:10,name:"Kota Rekamo",price:50,desc:"Chips + Polony + Cheese + Atchar + Sauce",img:"images/kota-rekamo.jpg",stock:20},
-{id:11,name:"Kota Moonate",price:70,desc:"Kota Moonate Special 🌙: Chips + Polony + Cheese + Vienna + Egg + Russian + Sauce 🔥",img:"images/kota-moonate.jpg",stock:20},
-{id:12,name:"Chicken + Pap + Chakalaka",price:75,desc:"Quarter lemon & herb chicken + pap + chakalaka + sauce 🍗",img:"images/kota-chicken-pap.jpg",stock:15},
-{id:13,name:"Quarter Chicken + Chips",price:65,desc:"Lemon & herb quarter + chips + sauce 🍟🍗",img:"images/quarter-chicken-chips.jpg",stock:15},
-{id:1,name:"Sneck Box",price:150,desc:"2 Wings + 4 Pies + 4 Eggs + Sauce ⏳ COMING SOON",img:"images/menu1.jpg",stock:20,comingSoon:true},
-{id:2,name:"Pap + Steak + Wors",price:80,desc:"Real pap + Juicy steak + Sauce ⏳ COMING SOON",img:"images/menu2.jpg",stock:15,comingSoon:true}
+{id:3,name:"Dackwood",price:80,stock:25},
+{id:4,name:"2 Hot Dogs - KIDS",price:70,stock:30},
+{id:5,name:"Giant Steak Roll",price:140,stock:12},
+{id:6,name:"Giant Chicken Roll",price:140,stock:12},
+{id:7,name:"Classic Burger + Chips",price:55,stock:40},
+{id:8,name:"Cheese Burger + Chips",price:65,stock:35},
+{id:14,name:"MEGA BURGER + Chips",price:90,stock:15},
+{id:15,name:"DOUBLE CHEESE JUMBO",price:100,stock:15},
+{id:9,name:"4 Cheese Burger + Fries",price:160,stock:8},
+{id:10,name:"Kota Rekamo",price:50,stock:20},
+{id:11,name:"Kota Moonate",price:70,stock:20},
+{id:12,name:"Chicken + Pap + Chakalaka",price:75,stock:15},
+{id:13,name:"Quarter Chicken + Chips",price:65,stock:15},
+{id:1,name:"Sneck Box",price:150,stock:20},
+{id:2,name:"Pap + Steak + Wors",price:80,stock:15}
 ];
 let menu=JSON.parse(localStorage.getItem('moonate_menu'))||defaultMenu;
 let sales=JSON.parse(localStorage.getItem('moonate_sales'))||[];
-let cart=[];
+let till=[];
 function saveMenu(){localStorage.setItem('moonate_menu',JSON.stringify(menu));}
 function saveSales(){localStorage.setItem('moonate_sales',JSON.stringify(sales));}
-function loadMenu(){
- const grid=document.getElementById('menu-grid');grid.innerHTML="";
- menu.forEach(m=>{
-   let tag=m.comingSoon?`<div class="tag tag-coming">⏳ COMING SOON</div>`:(m.kids?`<div class="tag tag-kids">👧 FOR KIDS</div>`:'');
-   let badge=m.stock<=3?`<div class="stock-badge low">LOW: ${m.stock}</div>`:`<div class="stock-badge">${m.stock} left</div>`;
-   let btn=(m.comingSoon||m.stock<=0)?`<button disabled style="background:#999">${m.stock<=0&&!m.comingSoon?'SOLD OUT':'COMING SOON'}</button>`:`<button onclick="addToCart(${m.id},this)">ADD TO CART</button>`;
-   grid.innerHTML+=`<div class="item-card" style="${m.comingSoon?'opacity:0.6;filter:grayscale(0.7)':''}">${tag}${badge}<img src="${m.img}" loading="lazy" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1568909344668-6f14a07b56a0?w=300&q=80'"><div class="card-body"><h3>${m.name}</h3><div class="desc">${m.desc}</div><div class="price">R${m.price}</div>${btn}</div></div>`;
- });
+function checkPIN(){if(document.getElementById('pin').value==='5224'){document.getElementById('login').style.display='none';}else{alert("Wrong PIN Boss! 5224");}}
+function showTab(t){
+document.getElementById('pos-grid').style.display=t==='sell'?'grid':'none';
+document.getElementById('sales-list').style.display=t==='sales'?'block':'none';
+document.getElementById('stock-list').style.display=t==='stock'?'block':'none';
+document.querySelectorAll('.tabs button').forEach(b=>b.classList.remove('active'));
+document.getElementById('tab-'+t).classList.add('active');
+if(t==='sales')loadSales(); if(t==='stock')loadStock();
 }
-function addToCart(id,btn){
- let item=menu.find(m=>m.id===id); if(item.comingSoon||item.stock<=0){alert("Sold out boss! Restock in POS");return;}
- let ex=cart.find(c=>c.id===id);
- if(ex){if(ex.qty>=item.stock){alert(`Only ${item.stock} left boss!`);return;}ex.qty+=1;}else cart.push({...item,qty:1});
- updateCart(); if(btn){let old=btn.innerText;btn.innerText="ADDED ✅";btn.style.background="#25D366";setTimeout(()=>{btn.innerText=old;btn.style.background="";},900);}
-}
-function changeQty(id,delta){let item=cart.find(c=>c.id===id);if(!item)return;item.qty+=delta;if(item.qty<=0)cart=cart.filter(c=>c.id!==id);updateCart();}
-function clearCart(){cart=[];updateCart();}
-function updateCart(){
- let totalItems=cart.reduce((s,c)=>s+c.qty,0);let sub=cart.reduce((s,c)=>s+(c.price*c.qty),0);let del=totalItems>0?15:0;
- document.getElementById('cart-count').innerText=totalItems;document.getElementById('cart-total').innerText=sub+del;document.getElementById('sub-total').innerText=sub;document.getElementById('del-fee').innerText=del;document.getElementById('modal-total').innerText=sub+del;document.getElementById('order-no').innerText='MN'+Date.now().toString().slice(-6);
- let html="";if(cart.length==0)html=`<div style="text-align:center;color:#999;padding:20px">Cart empty - Add something 🌙</div>`;
- else cart.forEach((c)=>{html+=`<div class="row"><span>${c.name}<br><small style="color:#888">R${c.price} x ${c.qty}</small></span><span style="display:flex;gap:6px;align-items:center"><button onclick="changeQty(${c.id},-1)" style="width:26px;height:26px;border-radius:6px;border:1px solid #E86A17;background:white;font-weight:800">-</button><b>${c.qty}</b><button onclick="changeQty(${c.id},1)" style="width:26px;height:26px;border-radius:6px;border:1px solid #E86A17;background:white;font-weight:800">+</button>&nbsp;<b>R${c.price*c.qty}</b></span></div>`;});
- document.getElementById('cart-items').innerHTML=html;
-}
-function openCart(){document.getElementById('cart-modal').style.display='block';updateCart();}
-function closeCart(){document.getElementById('cart-modal').style.display='none';}
-function pay(type){
- let name=document.getElementById('cust-name').value.trim();let addr=document.getElementById('cust-address').value.trim();let note=document.getElementById('cust-note').value.trim();
- if(cart.length==0){alert("Cart empty boss!");return;}if(!name||!addr){alert("Enter Name + Address boss!");return;}
- let sub=cart.reduce((s,c)=>s+(c.price*c.qty),0);let del=15;let total=sub+del;
- cart.forEach(ci=>{let mi=menu.find(m=>m.id===ci.id);if(mi)mi.stock-=ci.qty;});
- let order={id:'MN'+Date.now(),name,addr,note,items:[...cart],sub,del,total,type,time:new Date().toLocaleString(),date:new Date().toDateString()};
- sales.push(order);saveMenu();saveSales();loadMenu();updatePOSStats();
- let items=cart.map(c=>`- ${c.name} x${c.qty} = R${c.price*c.qty}`).join('%0A');
- let msg=`Hello MOONATE KO KASI 🌙🔥%0A%0A*NEW ORDER - ${type.toUpperCase()}*%0AOrder #: ${order.id}%0A%0AName: ${encodeURIComponent(name)}%0AAddress: ${encodeURIComponent(addr)}%0ANote: ${encodeURIComponent(note)}%0A%0A*ORDER:*%0A${items}%0A%0ASubtotal: R${sub}%0ADelivery: R${del}%0A*TOTAL: R${total}*%0A%0APayment: ${type}`;
- if(type=='card'){alert(`Card Payment - Total R${total}\nWe will send YoCo link on WhatsApp 0799073779`);}
- window.open(`https://wa.me/27799073779?text=${msg}`,'_blank');clearCart();closeCart();
-}
-function openPOS(){document.getElementById('pos-modal').style.display='block';updatePOSStats();loadPOSStock();}
-function closePOS(){document.getElementById('pos-modal').style.display='none';document.getElementById('pos-login').style.display='block';document.getElementById('pos-dashboard').style.display='none';}
-function checkPIN(){let pin=document.getElementById('pos-pin').value;if(pin==='5224'){document.getElementById('pos-login').style.display='none';document.getElementById('pos-dashboard').style.display='block';updatePOSStats();loadPOSStock();}else alert("Wrong PIN boss! Try 5224");}
-function showPOSTab(tab){document.getElementById('pos-stock-list').style.display=tab==='stock'?'block':'none';document.getElementById('pos-sales-list').style.display=tab==='sales'?'block':'none';document.getElementById('pos-add-form').style.display=tab==='add'?'block':'none';document.querySelectorAll('.pos-tab button').forEach(b=>b.classList.remove('active'));document.getElementById('tab-'+tab).classList.add('active');if(tab==='sales')loadPOSSales();if(tab==='stock')loadPOSStock();}
-function updatePOSStats(){let today=new Date().toDateString();let ts=sales.filter(s=>s.date===today);let total=ts.reduce((s,x)=>s+x.total,0);document.getElementById('stat-sales').innerText='R'+total;document.getElementById('stat-orders').innerText=ts.length;document.getElementById('stat-stock').innerText=menu.reduce((s,m)=>s+m.stock,0);document.getElementById('stat-low').innerText=menu.filter(m=>m.stock<=3).length;}
-function loadPOSStock(){
-let html='';
+function loadGrid(){
+let g=document.getElementById('pos-grid');g.innerHTML='';
 menu.forEach(m=>{
-html+=`<div class="pos-card"><span class="pos-name">${m.name}</span><b style="color:${m.stock<=3?'red':'#CC5500'}">R${m.price} | STOCK: ${m.stock}</b><div style="font-size:12px;color:#666">${m.desc||''}</div><div style="display:flex;gap:6px;margin-top:8px"><button onclick="updateStock(${m.id},1)" style="flex:1;padding:12px;background:#25D366;color:white;border:none;border-radius:6px;font-weight:800;font-size:16px">+1</button><button onclick="updateStock(${m.id},-1)" style="flex:1;padding:12px;background:#111;color:white;border:none;border-radius:6px;font-weight:800;font-size:16px">-1</button><button onclick="updateStock(${m.id},10)" style="flex:1;padding:12px;background:#E86A17;color:white;border:none;border-radius:6px;font-weight:800;font-size:16px">+10</button><button onclick="deleteProduct(${m.id})" style="padding:12px;background:#ff0000;color:white;border:none;border-radius:6px">🗑️</button></div></div>`;
+let out=m.stock<=0;
+g.innerHTML+=`<button class="pos-btn ${out?'out':''}" onclick="addTill(${m.id})"><b>${m.name}</b><span>R${m.price}</span><small>STOCK: ${m.stock} ${out?' - SOLD OUT':''}</small></button>`;
 });
-document.getElementById('pos-stock-list').innerHTML=html;
 }
-function updateStock(id,delta){let item=menu.find(m=>m.id===id);if(item){item.stock+=delta;if(item.stock<0)item.stock=0;saveMenu();loadMenu();loadPOSStock();updatePOSStats();}}
-function loadPOSSales(){
-let today=new Date().toDateString();let ts=sales.filter(s=>s.date===today).reverse();
-if(ts.length===0){document.getElementById('pos-sales-list').innerHTML=`<div class="pos-card" style="text-align:center;color:#999">No sales today - Start selling boss! 🔥</div>`;return;}
-let html='';
-ts.forEach(s=>{
-html+=`<div class="pos-card"><span class="pos-name">${s.id} - R${s.total} (${s.type})</span><small>${s.time}<br><b>${s.name}</b> - ${s.addr}</small><div style="margin-top:8px;font-size:15px;font-weight:700;line-height:1.6">${s.items.map(i=>`• ${i.name} x${i.qty} = R${i.price*i.qty}`).join('<br>')}</div></div>`;
-});
-document.getElementById('pos-sales-list').innerHTML=html;
+function addTill(id){
+let m=menu.find(x=>x.id===id);
+if(m.stock<=0){alert(m.name+" SOLD OUT Boss! Go STOCK +10");return;}
+let ex=till.find(x=>x.id===id);
+if(ex){if(ex.qty>=m.stock){alert("Only "+m.stock+" left Boss!");return;}ex.qty++;}
+else till.push({id:m.id,name:m.name,price:m.price,qty:1});
+updateTill();
 }
-function addNewProduct(){let name=document.getElementById('new-name').value.trim();let price=parseInt(document.getElementById('new-price').value);let stock=parseInt(document.getElementById('new-stock').value);let desc=document.getElementById('new-desc').value.trim();let img=document.getElementById('new-img').value.trim()||'images/menu1.jpg';let coming=document.getElementById('new-coming').checked;if(!name||!price){alert("Enter name + price boss");return;}let newId=menu.length>0?Math.max(...menu.map(m=>m.id))+1:1;menu.push({id:newId,name,price,stock:stock||10,desc,img,comingSoon:coming});saveMenu();loadMenu();loadPOSStock();updatePOSStats();alert("Product added! ✅");document.getElementById('new-name').value='';document.getElementById('new-price').value='';document.getElementById('new-stock').value='';document.getElementById('new-desc').value='';document.getElementById('new-img').value='';showPOSTab('stock');}
-function deleteProduct(id){if(confirm("Delete this product?")){menu=menu.filter(m=>m.id!==id);saveMenu();loadMenu();loadPOSStock();updatePOSStats();}}
-function clearAllSales(){if(confirm("Clear all today's sales? End of day!")){sales=sales.filter(s=>s.date!==new Date().toDateString());saveSales();updatePOSStats();loadPOSSales();alert("Cleared ✅");}}
-let likes=parseInt(localStorage.getItem('moonate_likes')||'0');document.getElementById('likeCount').innerText=likes;
-function likeApp(){likes++;localStorage.setItem('moonate_likes',likes);document.getElementById('likeCount').innerText=likes;alert("Thank you! ❤️ You liked MOONATE!");}
-let comments=JSON.parse(localStorage.getItem('moonate_comments')||'[]');
-function renderComments(){let h="";if(comments.length==0)h=`<div style="text-align:center;color:#999;font-size:12px;padding:10px">No comments yet. Be the first! 🌙</div>`;comments.forEach((c,i)=>{h+=`<div class="comment"><b>${c.name}</b>: ${c.msg}<br><button class="like-btn" onclick="likeComment(${i})">👍 Like (${c.likes||0})</button></div>`;});document.getElementById('comment-list').innerHTML=h;}
-function postComment(){let n=document.getElementById('chat-name').value.trim();let m=document.getElementById('chat-msg').value.trim();if(!n||!m){alert("Enter Name + Comment Boss!");return;}comments.unshift({name:n,msg:m,likes:0});localStorage.setItem('moonate_comments',JSON.stringify(comments));document.getElementById('chat-msg').value="";renderComments();}
-function likeComment(i){comments[i].likes=(comments[i].likes||0)+1;localStorage.setItem('moonate_comments',JSON.stringify(comments));renderComments();}
-function sendSuggestion(){let m=document.getElementById('chat-msg').value.trim();let n=document.getElementById('chat-name').value.trim();if(!m){alert("Write suggestion first!");return;}window.open(`https://wa.me/27799073779?text=${encodeURIComponent("SUGGESTION from "+n+": "+m)}`,'_blank');}
-renderComments();loadMenu();updateCart();
-setTimeout(function(){var s=document.getElementById('splash');if(s){s.classList.add('hide');setTimeout(function(){s.style.display='none';},600);}},3000);
-let deferredPrompt;const roundBtn=document.getElementById('roundInstallBtn');
-window.addEventListener('beforeinstallprompt',(e)=>{e.preventDefault();deferredPrompt=e;});
-async function installApp(){if(deferredPrompt){deferredPrompt.prompt();const{outcome}=await deferredPrompt.userChoice;if(outcome==='accepted'){roundBtn.style.display='none';}deferredPrompt=null;}else{alert("TO INSTALL:\nANDROID Chrome: Tap ⋮ > Install App\nIPHONE Safari: Share > Add to Home Screen");}}
-if(window.matchMedia('(display-mode: standalone)').matches||window.navigator.standalone){if(roundBtn)roundBtn.style.display='none';}
-if('serviceWorker' in navigator){navigator.serviceWorker.register('./sw.js').catch(()=>{});}
+function changeTill(id,d){let it=till.find(x=>x.id===id);if(!it)return;it.qty+=d;if(it.qty<=0)till=till.filter(x=>x.id!==id);updateTill();}
+function clearTill(){till=[];updateTill();}
+function updateTill(){
+let total=till.reduce((s,c)=>s+c.price*c.qty,0);
+document.getElementById('till-total').innerText=total;
+if(till.length===0){document.getElementById('till-items').innerHTML='No items - Tap a name above Boss';return;}
+document.getElementById('till-items').innerHTML=till.map(c=>`${c.name} x${c.qty} = R${c.price*c.qty} <button onclick="changeTill(${c.id},-1)">-</button><button onclick="changeTill(${c.id},1)">+</button>`).join('<br>');
+}
+function checkout(type){
+if(till.length===0){alert("Till empty Boss!");return;}
+let total=till.reduce((s,c)=>s+c.price*c.qty,0);
+till.forEach(ci=>{let mi=menu.find(m=>m.id===ci.id);if(mi)mi.stock-=ci.qty;});
+let order={id:'MN'+Date.now(),name:'WALK-IN',addr:'SHOP',note:'',items:[...till],sub:total,del:0,total:total,type:type,time:new Date().toLocaleString(),date:new Date().toDateString()};
+sales.push(order);saveMenu();saveSales();
+alert("SOLD ✅ R"+total+" - "+type+"\n"+till.map(c=>c.name+" x"+c.qty).join("\n"));
+clearTill();loadGrid();updateStats();
+}
+function updateStats(){
+let today=new Date().toDateString();
+let ts=sales.filter(s=>s.date===today);
+document.getElementById('stat-sales').innerText='R'+ts.reduce((s,x)=>s+x.total,0);
+document.getElementById('stat-orders').innerText=ts.length;
+document.getElementById('stat-stock').innerText=menu.reduce((s,m)=>s+m.stock,0);
+}
+function loadSales(){
+let today=new Date().toDateString();
+let ts=sales.filter(s=>s.date===today).reverse();
+if(ts.length===0){document.getElementById('sales-list').innerHTML='<div class="sale-card">No sales today Boss. Start selling 🔥</div>';return;}
+document.getElementById('sales-list').innerHTML=ts.map(s=>`<div class="sale-card"><b>${s.id} - R${s.total} (${s.type})</b><small>${s.time} - ${s.name}</small><div>${s.items.map(i=>'• '+i.name+' x'+i.qty+' = R'+(i.price*i.qty)).join('<br>')}</div></div>`).join('')+`<button onclick="clearSales()" style="width:100%;padding:14px;background:#ff0000;color:white;border:none;border-radius:10px;font-weight:800;margin-top:10px">🗑️ CLEAR TODAY SALES</button>`;
+}
+function loadStock(){
+document.getElementById('stock-list').innerHTML=menu.map(m=>`<div class="stock-row"><b>${m.name}</b><span>R${m.price} | STOCK: ${m.stock}</span><div><button style="background:#25D366" onclick="updStock(${m.id},1)">+1</button><button style="background:#111" onclick="updStock(${m.id},-1)">-1</button><button style="background:#E86A17" onclick="updStock(${m.id},10)">+10</button></div></div>`).join('');
+}
+function updStock(id,d){let m=menu.find(x=>x.id===id);m.stock+=d;if(m.stock<0)m.stock=0;saveMenu();loadGrid();loadStock();updateStats();}
+function clearSales(){if(confirm("Clear today sales Boss?")){sales=sales.filter(s=>s.date!==new Date().toDateString());saveSales();loadSales();updateStats();}}
+loadGrid();updateTill();updateStats();
 </script>
 </body>
 </html>
